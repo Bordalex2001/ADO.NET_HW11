@@ -1,0 +1,34 @@
+﻿<Window x:Class="ADO.NET_HW11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ADO.NET_HW11"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="250" Width="450">
+    <Grid>
+        <DockPanel LastChildFill="True">
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Файл"></MenuItem>
+                <MenuItem Header="Опції">
+                    <MenuItem Header="Додати автора" Command="{Binding AddAuthor}"></MenuItem>
+                    <MenuItem Header="Редагувати автора"></MenuItem>
+                    <MenuItem Header="Видалити автора"></MenuItem>
+                    <MenuItem Header="Додати книгу"></MenuItem>
+                    <MenuItem Header="Редагувати книгу"></MenuItem>
+                    <MenuItem Header="Видалити книгу"></MenuItem>
+                </MenuItem>
+            </Menu>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <ComboBox Grid.Row="0" Margin="10" VerticalAlignment="Top"/>
+                <ListBox Grid.Row="1" Margin="10, 0" Height="125"/>
+                <CheckBox Grid.Row="2" Content="Фільтрувати" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top"/>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
