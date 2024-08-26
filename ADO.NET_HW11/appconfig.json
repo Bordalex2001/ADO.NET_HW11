@@ -1,5 +1,5 @@
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=Alex;Database=AuthorsAndBooksDB;Integrated Security=SSPI;TrustServerCertificate=true"
+    "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=AuthorsAndBooksDB;Integrated Security=SSPI;TrustServerCertificate=true"
   }
 }

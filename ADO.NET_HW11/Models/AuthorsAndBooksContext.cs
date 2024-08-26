@@ -17,12 +17,17 @@ namespace ADO.NET_HW11.Models
         {
             var builder = new ConfigurationBuilder();
             builder.SetBasePath(Directory.GetCurrentDirectory());
-            builder.AddJsonFile("appsettings.json");
+            builder.AddJsonFile("appconfig.json");
             var config = builder.Build();
             string connectionString = config.GetConnectionString("DefaultConnection");
 
             var optionsBuilder = new DbContextOptionsBuilder<AuthorsAndBooksContext>();
             _options = optionsBuilder.UseLazyLoadingProxies().UseSqlServer(connectionString).Options;
+        }
+
+        public AuthorsAndBooksContext() : base(_options)
+        {
+            Database.EnsureCreated();
         }
 
         public DbSet<Author> Authors { get; set; }

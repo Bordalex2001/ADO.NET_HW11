@@ -13,24 +13,24 @@ namespace ADO.NET_HW11
     {
         private void OnStartup(object sender, StartupEventArgs e)
         {
-            try
-            {
-                using (var db = new AuthorsAndBooksContext())
+            //try
+            //{
+                using (AuthorsAndBooksContext? db = new())
                 {
                     var authors = from a in db.Authors
                                   select a;
                     var books = from b in db.Books
                                 select b;
-                    MainWindow view = new MainWindow();
-                    MainViewModel viewModel = new MainViewModel(authors, books);
+                    MainWindow view = new();
+                    MainViewModel viewModel = new(authors, books);
                     view.DataContext = viewModel;
                     view.Show();
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+                //MessageBox.Show(ex.Message);
+            //}
         }
     }
 }

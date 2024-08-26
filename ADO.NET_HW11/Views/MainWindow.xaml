@@ -12,11 +12,11 @@
                 <MenuItem Header="Файл"></MenuItem>
                 <MenuItem Header="Опції">
                     <MenuItem Header="Додати автора" Command="{Binding AddAuthor}"></MenuItem>
-                    <MenuItem Header="Редагувати автора"></MenuItem>
-                    <MenuItem Header="Видалити автора"></MenuItem>
-                    <MenuItem Header="Додати книгу"></MenuItem>
-                    <MenuItem Header="Редагувати книгу"></MenuItem>
-                    <MenuItem Header="Видалити книгу"></MenuItem>
+                    <MenuItem Header="Редагувати автора" Command="{Binding EditAuthor}"></MenuItem>
+                    <MenuItem Header="Видалити автора" Command="{Binding DeleteAuthor}"></MenuItem>
+                    <MenuItem Header="Додати книгу" Command="{Binding AddBook}"></MenuItem>
+                    <MenuItem Header="Редагувати книгу" Command="{Binding EditBook}"></MenuItem>
+                    <MenuItem Header="Видалити книгу" Command="{Binding DeleteBook}"></MenuItem>
                 </MenuItem>
             </Menu>
             <Grid>
@@ -25,9 +25,9 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
-                <ComboBox Grid.Row="0" Margin="10" VerticalAlignment="Top"/>
-                <ListBox Grid.Row="1" Margin="10, 0" Height="125"/>
-                <CheckBox Grid.Row="2" Content="Фільтрувати" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top"/>
+                <ComboBox Grid.Row="0" Margin="10" VerticalAlignment="Top" ItemsSource="{Binding AuthorsList}" IsSynchronizedWithCurrentItem="True" SelectedIndex="{Binding IndexSelectedAuthor}"/>
+                <ListBox ItemsSource="{Binding BooksList, Mode=TwoWay}" IsSynchronizedWithCurrentItem="True" SelectedIndex="{Binding IndexSelectedBook}" Grid.Row="1" Margin="10, 0" Height="125"/>
+                <CheckBox IsChecked="{Binding FilterByAuthor, Mode=TwoWay}" Grid.Row="2" Content="Фільтрувати" HorizontalAlignment="Center" Margin="10" VerticalAlignment="Top"/>
             </Grid>
         </DockPanel>
     </Grid>

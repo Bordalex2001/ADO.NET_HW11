@@ -29,6 +29,11 @@ namespace ADO.NET_HW11.ViewModels
         public int IdAuthor
         {
             get { return _book.IdAuthor; }
+            set
+            {
+                _book.IdAuthor = value;
+                OnPropertyChanged(nameof(IdAuthor));
+            }
         }
     }
 }
